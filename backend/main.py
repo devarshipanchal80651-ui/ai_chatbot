@@ -5,6 +5,7 @@ from backend import models
 from dotenv import load_dotenv
 from backend.routers.chat import router as chat_router
 from backend.routers import auth_routes, chat
+import os
 
 load_dotenv()
 
@@ -18,3 +19,8 @@ app.include_router(chat.router)
 @app.get("/")
 def root():
     return {"status": "Backend running"}
+
+if os.getenv("RENDER"):
+    print("Running on Render - DB disabled temporarily")
+else:
+    from backend.database import  engine

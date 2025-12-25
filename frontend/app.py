@@ -52,7 +52,7 @@ def login_page():
 
         # ✅ CORRECT LOGIN API CALL
         res = requests.post(
-            "http://127.0.0.1:8000/login",
+            "http://127.0.0.1:10000/login",
             json={"username": username, "password": password}
         )
 
@@ -85,7 +85,7 @@ def register_page():
 
             # ✅ REAL REGISTER API CALL
             res = requests.post(
-                "http://127.0.0.1:8000/register",
+                "http://127.0.0.1:10000/register",
                 json={"username": username, "password": password}
             )
 
@@ -139,7 +139,7 @@ def chat_page():
             # AI BACKEND CALL
             try:
                 response = requests.post(
-                    "http://127.0.0.1:8000/chat",
+                    "http://127.0.0.1:10000/chat",
                     json={"message": user_input},
                     timeout=30
                 )
